@@ -7,6 +7,7 @@ Below, we'll explain the pieces of the project we expect you to have:
 
 ## planning.md
 This file should contain the planning you did to prepare before starting your project. This could include a description of tasks your team needs to do, how you will divide the tasks, and milestones you want to reach.
+https://docs.google.com/document/d/1WkthDSduW5-Oh59Jwr2VPN2A8KqkTx32eUFubjAtq6w/edit?usp=sharing <-- Link to Proposal
 
 ## game.py
 When we run this file, your game should run.
