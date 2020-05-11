@@ -8,16 +8,12 @@ from quest.sprite import Background, Wall, NPC
 import arcade
 import os
 from quest.contrib.inventory import InventoryMixin, InventoryItemMixin
-from pathlib import Path
+from quest.examples.grandmas_soup import GrandmasSoupGame
+from quest.helpers import resolve_resource_path
+from quest.strategy import RandomWalk
 
 
-def resolve_path(relative_path):
-    """A helper function to find images and other resources.
-    """
-    here = Path(os.path.abspath(__file__)).parent
-    return str(here / relative_path)
-
-class IslandAdventure(InventoryMixin,QuestGame):
+class IslandAdventure(InventoryMixin,GrandmasSoupGame):
     """A very simple subclass of :py:class:`QuestGame`.
 
     To run this example::
@@ -30,7 +26,7 @@ class IslandAdventure(InventoryMixin,QuestGame):
     blue bar just above.
     """
 
-    player_sprite_image = resolve_path("images/boy_simple.png")
+    player_sprite_image = "boy_simple.png"
     screen_width = 1000
     screen_height = 750
     left_viewport_margin = 96
@@ -41,39 +37,19 @@ class IslandAdventure(InventoryMixin,QuestGame):
     player_initial_y = 0
     player_speed = 6
 
-    def setup_maps(self):
-        """Sets up the map.
-
-        Uses a :py:class:`TiledMap` to load the map from a ``.tmx`` file,
-        created using :doc:`Tiled <tiled:manual/introduction>`.
-        """
-        super().setup_maps()
-        sprite_classes = {
-            "Obstacles": Wall,
-            "Background": Background,
-        }
-        island_map = TiledMap(resolve_path("images/island/island.tmx"), sprite_classes)
-        self.add_map(island_map)
-
-    def setup_walls(self):
-        """Assigns sprites to `self.wall_list`. These sprites will function as walls, blocking
-        the player from passing through them.
-        """
-        self.wall_list = self.get_current_map().get_layer_by_name("Obstacles").sprite_list
-
     def setup_npcs(self):
         """Creates and places Grandma and the vegetables.
         """
         npc_data = [
-            [Grandma, "images/people/grandma.png", 3, 400, 400],
-            [Carrots, "images/items/carrots.png", 1, 220, 640],
-            [Mushroom, "images/items/mushroom.png", 1, 1028, 264],
-            [Potatoes, "images/items/potatoes.png", 1, 959, 991],
-            [Tomatos, "images/items/tomatos.png", 1, 323, 1055],
+            [Grandma, "pirate.30.39 AM.png", 3, 400, 400],
+            [Carrots, "carrots.png", 1, 220, 640],
+            [Mushroom, "mushroom.png", 1, 1028, 264],
+            [Potatoes, "potatoes.png", 1, 959, 991],
+            [Tomatos, "tomatos.png", 1, 323, 1055],
         ]
         self.npc_list = arcade.SpriteList()
         for sprite_class, image, scale, x, y in npc_data:
-            sprite = sprite_class(resolve_path(image), scale)
+            sprite = sprite_class(image, scale)
             sprite.center_x = x
             sprite.center_y = y
             self.npc_list.append(sprite)
@@ -82,6 +58,9 @@ class IslandAdventure(InventoryMixin,QuestGame):
         walk = RandomWalk(0.05)
         grandma.strategy = walk
 
+
+class Grandma(NPC):
+    description= "Grandma"
 
 class Vegetable(NPC):
     """A vegetable is an NPC that can be picked up.
