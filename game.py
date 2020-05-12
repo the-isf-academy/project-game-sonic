@@ -14,7 +14,7 @@ from quest.strategy import RandomWalk
 from quest.contrib.sprite_directionality import DirectionalMixin
 
 
-class IslandAdventure(InventoryMixin,GrandmasSoupGame):
+class IslandAdventure(InventoryItemMixin,InventoryMixin,GrandmasSoupGame):
     """A very simple subclass of :py:class:`QuestGame`.
 
     To run this example::
@@ -42,7 +42,7 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
         """Creates and places Grandma and the vegetables.
         """
         npc_data = [
-            [Grandma, "pirate.30.39 AM.png", 3, 400, 400],
+            [Grandma, "pirate.30.39 AM.png", 0.3, 400, 400],
             [Carrots, "carrots.png", 1, 220, 640],
             [Mushroom, "mushroom.png", 1, 1028, 264],
             [Potatoes, "potatoes.png", 1, 959, 991],
