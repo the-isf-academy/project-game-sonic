@@ -11,6 +11,7 @@ from quest.contrib.inventory import InventoryMixin, InventoryItemMixin
 from quest.examples.grandmas_soup import GrandmasSoupGame
 from quest.helpers import resolve_resource_path
 from quest.strategy import RandomWalk
+from quest.contrib.sprite_directionality import DirectionalMixin
 
 
 class IslandAdventure(InventoryMixin,GrandmasSoupGame):
@@ -26,15 +27,15 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
     blue bar just above.
     """
 
-    player_sprite_image = "boy_simple.png"
+    player_scaling=1
     screen_width = 1000
     screen_height = 750
     left_viewport_margin = 96
     right_viewport_margin = 96
     bottom_viewport_margin = 96
     top_viewport_margin = 96
-    player_initial_x = 0
-    player_initial_y = 0
+    player_initial_x = 300
+    player_initial_y = 300
     player_speed = 6
 
     def setup_npcs(self):
@@ -57,7 +58,6 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
         grandma = self.npc_list[0]
         walk = RandomWalk(0.05)
         grandma.strategy = walk
-
 
 class Grandma(NPC):
     description= "Grandma"
