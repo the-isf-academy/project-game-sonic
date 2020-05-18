@@ -12,9 +12,10 @@ from quest.examples.grandmas_soup import GrandmasSoupGame
 from quest.helpers import resolve_resource_path
 from quest.strategy import RandomWalk
 from quest.contrib.sprite_directionality import DirectionalMixin
+from quest.sprite import QuestSprite
+from puzzle import *
 
-
-class IslandAdventure(InventoryItemMixin,InventoryMixin,GrandmasSoupGame):
+class IslandAdventure(InventoryMixin,GrandmasSoupGame):
     """A very simple subclass of :py:class:`QuestGame`.
 
     To run this example::
@@ -26,7 +27,9 @@ class IslandAdventure(InventoryItemMixin,InventoryMixin,GrandmasSoupGame):
     After you play it, check out the sorce code by clicking on "source" in the
     blue bar just above.
     """
-
+    player_sprite_image_lr="boy.png"
+    player_sprite_image_down="boy_simple.png"
+    player_sprite_image_up="boy_copy.png"
     player_scaling=1
     screen_width = 1000
     screen_height = 750
@@ -42,7 +45,7 @@ class IslandAdventure(InventoryItemMixin,InventoryMixin,GrandmasSoupGame):
         """Creates and places Grandma and the vegetables.
         """
         npc_data = [
-            [Grandma, "pirate.30.39 AM.png", 0.3, 400, 400],
+            [Grandma, "pirate.30.39_AM.png", 0.3, 400, 400],
             [Carrots, "carrots.png", 1, 220, 640],
             [Mushroom, "mushroom.png", 1, 1028, 264],
             [Potatoes, "potatoes.png", 1, 959, 991],
@@ -59,19 +62,25 @@ class IslandAdventure(InventoryItemMixin,InventoryMixin,GrandmasSoupGame):
         walk = RandomWalk(0.05)
         grandma.strategy = walk
 
+    def setup_player(self):
+        self.player = PlayerDirectional(self.player_sprite_image_lr,self.player_sprite_image_up,self.player_sprite_image_down,self.player_scaling)
+        self.player.center_x = self.player_initial_x
+        self.player.center_y = self.player_initial_y
+        self.player.speed = self.player_speed
+        self.player_list = arcade.SpriteList()
+        self.player_list.append(self.player)
+
+
+class PlayerDirectional(DirectionalMixin,QuestSprite):
+    pass
+
 class Grandma(NPC):
     description= "Grandma"
 
-class Vegetable(NPC):
+class Vegetable(InventoryItemMixin,NPC):
     """A vegetable is an NPC that can be picked up.
     """
     description = "item"
-    def on_collision(self, sprite, game):
-        """When the player collides with a vegetable, it tells the game and then
-        kills itself.
-        """
-        game.got_item(self.description)
-        self.kill()
 
 class Carrots(Vegetable):
     description = "carrots"
