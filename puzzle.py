@@ -16,8 +16,7 @@ class PuzzleKey():
     puzzle_1=0
 
 class PuzzleImage():
-    puzzle_1=
-    pass
+    puzzle_1=0
 
 
 class Puzzlepiece(InventoryItemMixin,NPC):

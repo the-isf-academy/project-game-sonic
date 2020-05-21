@@ -13,7 +13,6 @@ from quest.helpers import resolve_resource_path
 from quest.strategy import RandomWalk
 from quest.contrib.sprite_directionality import DirectionalMixin
 from quest.sprite import QuestSprite
-from puzzle import *
 
 class IslandAdventure(InventoryMixin,GrandmasSoupGame):
     """A very simple subclass of :py:class:`QuestGame`.
