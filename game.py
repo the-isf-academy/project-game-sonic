@@ -29,16 +29,16 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
     player_sprite_image_lr="boy.png"
     player_sprite_image_down="boy_simple.png"
     player_sprite_image_up="boy_copy.png"
-    player_scaling=1
-    screen_width = 1000
-    screen_height = 750
+    player_scaling=0.7
+    screen_width = 500
+    screen_height = 400
     left_viewport_margin = 96
     right_viewport_margin = 96
     bottom_viewport_margin = 96
     top_viewport_margin = 96
     player_initial_x = 300
     player_initial_y = 300
-    player_speed = 6
+    player_speed = 1
 
     def setup_npcs(self):
         """Creates and places Grandma and the vegetables.
@@ -69,6 +69,16 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
         self.player_list = arcade.SpriteList()
         self.player_list.append(self.player)
 
+
+    def setup_maps(self):
+        """Sets up the standard island map.
+        """
+        super().setup_maps()
+        sprite_classes = {
+            "Obstacles": Wall,
+            "Background": QuestSprite,
+        }
+        self.add_map(TiledMap("island/basemap.tmx",sprite_classes))
 
 class PlayerDirectional(DirectionalMixin,QuestSprite):
     pass
