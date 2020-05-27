@@ -70,6 +70,7 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
         self.player_list.append(self.player)
 
 
+
     def setup_maps(self):
         """Sets up the standard island map.
         """
@@ -79,6 +80,10 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
             "Background": QuestSprite,
         }
         self.add_map(TiledMap("island/basemap.tmx",sprite_classes))
+
+    def inventory(self):
+        "A helper to return the inventory"
+        return self.removed_sprite_lists['inventory']
 
 class PlayerDirectional(DirectionalMixin,QuestSprite):
     pass
