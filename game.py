@@ -53,9 +53,9 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
         """Creates and places Grandma and the vegetables.
         """
         npc_data = [
-            [Puzzle, "carrots.png", 1, 220, 640],
+            [Puzzle, "carrots.png", 1, 240, 670],
             [Puzzle, "mushroom.png", 1, 220, 645],
-            [Puzzle, "potatoes.png", 1, 220, 600],
+            [Puzzle, "potatoes.png", 1, 250, 600],
             [Puzzle, "tomatos.png", 1, 220, 580],
         ]
         self.npc_list = arcade.SpriteList()
@@ -81,7 +81,7 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
             "Obstacles": Wall,
             "Background": QuestSprite,
         }
-        self.add_map(TiledMap("island/combinedmaps.tmx",sprite_classes))
+        self.add_map(TiledMap("island/treasure.tmx",sprite_classes))
 
 
 
