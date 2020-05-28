@@ -2,7 +2,7 @@
 Ahoy thar me bucko. Wha' 'ave ye jus' found? Be that a loot chest o'er thar?
 
 + Yes it is -> TRUTH
-+ No its just a fake treasure chest, -> LIE
++ No its just a fake treasure chest -> LIE
 
 === TRUTH ===
 Oh thank ye me bucko fer lootin' me t' this booty chest. Ye be incredible, however
@@ -16,7 +16,7 @@ Oh really... It seems ye were lyin' t' me. How dare ye! Ye're comin' t' our ship
 + Please don't take me -> BAD
 
 === GOOD ===
-Let us be on our way then.
+Let us be on our merry way then.
 
 + Ok -> END
 

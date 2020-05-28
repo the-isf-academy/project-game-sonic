@@ -2,6 +2,7 @@
 #
 # Authors: Jared, Maddalena
 from quest.dialogue import *
+from quest.modal import *
 from quest.game import QuestGame
 from quest.map import TiledMap
 from quest.sprite import Background, Wall, NPC
@@ -32,8 +33,8 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
     player_sprite_image_down="boy_simple.png"
     player_sprite_image_up="boy_copy.png"
     player_scaling=0.7
-    screen_width = 500
-    screen_height = 400
+    screen_width = 1200
+    screen_height = 750
     left_viewport_margin = 96
     right_viewport_margin = 96
     bottom_viewport_margin = 96
@@ -41,6 +42,12 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
     player_initial_x = 300
     player_initial_y = 300
     player_speed = 6
+
+    def __init__(self):
+        super().__init__()
+
+    def talk_with_pirate(self):
+        self.open_modal(self.modal)
 
     def setup_npcs(self):
         """Creates and places Grandma and the vegetables.
@@ -66,8 +73,6 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
         self.player_list = arcade.SpriteList()
         self.player_list.append(self.player)
 
-
-
     def setup_maps(self):
         """Sets up the standard island map.
         """
@@ -76,22 +81,13 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
             "Obstacles": Wall,
             "Background": QuestSprite,
         }
-        self.add_map(TiledMap("island/basemap.tmx",sprite_classes))
+        self.add_map(TiledMap("island/combinedmaps.tmx",sprite_classes))
 
-class PirateDialogue(Dialogue):
-    def __init__():
-        self.dialogue = Dialogue.from_ink("dialogue.ink")
-        self.modal1 = DialogueModal(self, self.dialogue)
-
-    def talk_to_pirate():
-        self.open_modal(self.modal1)
 
 
 class PlayerDirectional(DirectionalMixin,QuestSprite):
     pass
 
-class Grandma(NPC):
-    description= "Grandma"
 
 
 if __name__ == '__main__':

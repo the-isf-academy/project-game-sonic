@@ -9,7 +9,9 @@ from quest.helpers import resolve_resource_path
 from quest.strategy import RandomWalk
 from quest.contrib.sprite_directionality import DirectionalMixin
 from quest.sprite import QuestSprite
-from game import PirateDialogue
+from game import *
+
+
 
 class Puzzle(InventoryItemMixin,NPC):
     description = "coin"
@@ -41,6 +43,14 @@ class Portal(InventoryItemMixin,NPC):
         super().__init__(image,scale)
 
     def on_collision(self,sprite,game):
-        talk_to_pirate()
-        #sprite.center_x = 100
-        #sprite.center_y = 100
+        sprite.center_x = 1000
+        sprite.center_y = 0
+"""
+class TalktoPirate(InventoryItemMixin, NPC):
+    def __init__(self,gamestate,image,scale):
+        self.gamestate=gamestate
+        super().__init__(image,scale)
+
+    def on_collision(self,sprite,game):
+        talk_with_pirate()
+"""
