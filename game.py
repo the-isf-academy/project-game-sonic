@@ -76,12 +76,12 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
     def setup_maps(self):
         """Sets up the standard island map.
         """
-        super().setup_maps()
+        self.maps=[]
         sprite_classes = {
             "Obstacles": Wall,
             "Background": QuestSprite,
         }
-        self.add_map(TiledMap("island/treasure.tmx",sprite_classes))
+        self.add_map(TiledMap("island/combinedmaps.tmx",sprite_classes))
 
 
 
