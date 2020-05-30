@@ -69,9 +69,9 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
         """
         npc_data = [
             [Puzzle, "key.png", 1, 9*32, (99-31)*32],
-            [Puzzle, "key1.png", 1, 9*32, (99-31)*32],
-            [Puzzle, "key2.png", 1, 9*32, (99-31)*32],
-            [Puzzle, "key3.png", 1, 9*32, (99-31)*32],
+            [Puzzle, "key1.png", 1, 34*32, (100-34)*32],
+            [Puzzle, "key2.png", 1, 12*32, (100-60)*32],
+            [Puzzle, "key3.png", 1, 35*32, (100-61)*32],
             [Puzzle2, "carrots.png", 1, 65*32, (99-15)*32],
             [Puzzle2, "mushroom.png", 1, 136*32, (100-10)*32],
             [Puzzle2, "potatoes.png", 1, 128*32, (100-72)*32],
@@ -84,6 +84,10 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
             sprite.center_x = x
             sprite.center_y = y
             self.npc_list.append(sprite)
+
+    def SpriteList(self):
+        self.npc_list = arcade.SpriteList()
+        return npc_list
 
     def setup_player(self):
         self.player = PlayerDirectional(self.player_sprite_image_lr,self.player_sprite_image_up,self.player_sprite_image_down,self.player_scaling)
@@ -109,12 +113,7 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
 
 class PlayerDirectional(DirectionalMixin,QuestSprite):
     pass
-"""
-            [Puzzle, "key.png", 1, 9*32, (99-31)*32],
-            [Puzzle, "key1.png", 1, 34*32, (100-34)*32],
-            [Puzzle, "key2.png", 1, 12*32, (100-60)*32],
-            [Puzzle, "key3.png", 1, 35*32, (100-61)*32],
-"""
+
 if __name__ == '__main__':
     game = IslandAdventure()
     game.run()

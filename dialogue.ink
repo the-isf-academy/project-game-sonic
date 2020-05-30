@@ -1,7 +1,7 @@
 === START ===
-Ahoy thar me bucko. Wha' 'ave ye jus' found? Be that a loot chest o'er thar?
+Ahoy thar me bucko! Wha' 'ave ye jus' found? Be that a booty chest on ye?
 
-+ Yes it is -> TRUTH
++ Yes -> TRUTH
 + No its just a fake treasure chest -> LIE
 
 === TRUTH ===
