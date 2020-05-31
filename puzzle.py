@@ -12,16 +12,22 @@ from quest.sprite import QuestSprite
 from quest.helpers import scale
 from game import *
 from quest.examples.grandmas_soup import Grandma
-
-
+from quest.contrib.removable import RemovableMixin
 
 class Puzzle(InventoryItemMixin,NPC):
-    description = "key"
+    """
+    Class that houses the first part of the puzzle(Keys)
+    """
+    description = "Key"
     def __init__(self,gamestate,image,scale):
         self.gamestate=gamestate
         super().__init__(image,scale)
 
     def check(self,inventory):
+        """
+        Defines the function which checks to see if you have collected all then
+        keys, and if you do, summons the portal.
+        """
         if len(inventory) == 4:
             npc_data = [
                 [Portal, "island/portal.png", 0.1, 14*32, (100-51)*32],
@@ -33,17 +39,27 @@ class Puzzle(InventoryItemMixin,NPC):
                 self.gamestate.npc_list.append(sprite)
 
     def on_collision(self, sprite, game):
+        """
+        Checks to see whether you have collected all the keys
+        """
         super().on_collision(sprite,game)
         self.check(self.gamestate.inventory())
 
 
 class Puzzle2(InventoryItemMixin,NPC):
-    description = "coin"
+    """
+    Class that houses second part of the puzzle(Artifacts)
+    """
+    description = "Artifact"
     def __init__(self,gamestate,image,scale):
         self.gamestate=gamestate
         super().__init__(image,scale)
 
     def check(self,inventory):
+        """
+        Defines the function which checks if inventory has all the artifacts,
+        and if you do, summons the treasure chest.
+        """
         if len(inventory) == 9:
             npc_data = [
                 [Treasure, "island/loot.png", 0.6, 91.5*32, (100-96.5)*32]
@@ -55,16 +71,25 @@ class Puzzle2(InventoryItemMixin,NPC):
                 self.gamestate.npc_list.append(sprite)
 
     def on_collision(self, sprite, game):
+        """
+        Checks if the player has collected all the artifacts.
+        """
         super().on_collision(sprite,game)
         self.check(self.gamestate.inventory())
 
 class Treasure(InventoryItemMixin,NPC):
+    """
+    Class that summons the treasure.
+    """
     description="Treasure"
     def __init__(self,gamestate,image,scale):
         self.gamestate=gamestate
         super().__init__(image,scale)
 
     def check(self,inventory):
+        """
+        Defines the function that checks to see if inventory is equal to 10. If it is, summons the pirates.
+        """
         if len(inventory) == 10:
             npc_data = [
                 [Puzzle, "island/piratesword.png", 0.45, 86*32, (100-90.5)*32],
@@ -72,7 +97,7 @@ class Treasure(InventoryItemMixin,NPC):
                 [Puzzle, "island/piratesword.png", 0.45, 90.7*32, (100-89)*32],
                 [Puzzle, "island/pirategun.png", 0.45, 90*32, (100-85)*32],
                 #Pirate:
-                [PirateLord, "island/piratesword.png", 0.45,91.5*32,(100-91)*32],
+                [PirateLord, "island/piratelord.png", 0.45,91.5*32,(100-91)*32],
                 [Puzzle, "island/piratesword.png", 0.45,89*32,(100-82)*32],
                 [Puzzle, "island/pirategun.png", 0.45,86*32,(100-81)*32],
                 [Puzzle, "island/piratesword.png", 0.45,85*32,(100-79)*32],
@@ -109,11 +134,18 @@ class Treasure(InventoryItemMixin,NPC):
                 self.gamestate.npc_list.append(sprite)
 
     def on_collision(self, sprite, game):
+        """
+        Checks if inventory is equal to 10, then opens the pirateambush dialouge.
+        """
         super().on_collision(sprite,game)
         self.check(self.gamestate.inventory())
         game.pirateambush()
+        sprite.stop()
 
 class PirateLord(NPC):
+    """
+    Class that allows the player to interact with the Pirate captain/lord.
+    """
     def __init__(self,gamestate,image,scale):
         self.gamestate=gamestate
         super().__init__(image,scale)
@@ -132,7 +164,11 @@ class PirateLord(NPC):
             sprite.center_y = y
             self.gamestate.npc_list.append(sprite)
 
+
 class End(NPC):
+    """
+    Ends the game.
+    """
     def __init__(self,gamestate,image,scale):
         self.gamestate=gamestate
         super().__init__(image,scale)
@@ -143,6 +179,9 @@ class End(NPC):
         sprite.center_y = (100-47)*32
 
 class Portal(InventoryItemMixin,NPC):
+    """
+    Class that allows the player to teleport from the intial island to the treasure island.
+    """
 
     def __init__(self,gamestate,image,scale):
         self.gamestate=gamestate
