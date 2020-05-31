@@ -17,16 +17,8 @@ from quest.sprite import QuestSprite
 from puzzle import *
 
 class IslandAdventure(InventoryMixin,GrandmasSoupGame):
-    """A very simple subclass of :py:class:`QuestGame`.
-
-    To run this example::
-
-        $ python -m quest.examples.island
-
-    :py:class:`IslandAdventure` shows off the basic features of the Quest
-    framework, loading a map and letting the player explore it.
-    After you play it, check out the sorce code by clicking on "source" in the
-    blue bar just above.
+    """
+    Main game class that runs the game
     """
     player_sprite_image_lr="island/boy.png"
     player_sprite_image_down="island/boy_simple.png"
@@ -57,9 +49,8 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
     instruction_shortcut = arcade.key.P
 
     def on_key_press(self, key, modifier):
-        """Overrides `on_key_press` so that when the instructions shortcut key is
-        pressed, opens the instructions. Otherwise, delegates to the parent
-        `on_key_press` method.
+        """
+        Opens the instructions when you press "P" key
         """
         if key == self.instruction_shortcut:
             self.open_modal(self.modal1)
@@ -100,10 +91,16 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
             self.npc_list.append(sprite)
 
     def SpriteList(self):
+        """
+        Returns NPC list
+        """
         self.npc_list = arcade.SpriteList()
         return npc_list
 
     def setup_player(self):
+        """
+        Sets up the player
+        """
         self.player = PlayerDirectional(self.player_sprite_image_lr,self.player_sprite_image_up,self.player_sprite_image_down,self.player_scaling)
         self.player.center_x = self.player_initial_x
         self.player.center_y = self.player_initial_y
