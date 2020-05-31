@@ -5,22 +5,43 @@ Ahoy thar me bucko! Wha' 'ave ye jus' found? Be that a booty chest on ye?
 + No its just a fake treasure chest -> LIE
 
 === TRUTH ===
-Oh thank ye me bucko fer lootin' me t' this booty chest. Ye be incredible, however
-we must still keep ye prisoner on our ship. Ye best be grateful we aren't feedin' ye t' th' sharks!
+Oh thank ye me bucko fer lootin' me t' this booty chest. Ye be incredible fer helpin' us find th' booty,
+'n a young lad like ye shouldn't be runnin' around, a lot o' dangerous scallywags these days.
+ We shall keep ye safe onboard th' ship. Totally nah kidnappin' ye.
 
-+ Thanks? -> GOOD
++ Ummm -> WAIT
++ Ok -> GOOD
++ (Shout for help) -> HELP
 
 === LIE ===
-Oh really... It seems ye were lyin' t' me. How dare ye! Ye're comin' t' our ship now wit' us!
+Oh really? Don't take me fer a fool! How dare ye! Hand o'er th' loot or we shall feed ye t' th' sharks!
 
-+ Please don't take me -> BAD
++ Why should I give you what I found? I will not give you my treasure  -> LAST
++ Fine -> GOOD
+
+=== LAST ===
+Ye don't wants t' mess wit' me!
+
++ I'm not scared! -> BAD
++ Fine. ->GOOD
 
 === GOOD ===
-Let us be on our merry way then.
+Good lad. Let us be on our merry way then.
 
 + Ok -> END
 
 === BAD ===
-That's wha' ye get fer lyin' t' me!
+Ye give me no choice. Take 'im away!
+
++ :( -> END
+
+=== WAIT ===
+Wha' are ye waitin' fer? Lets go!
+
++Ok -> GOOD
+
+
+=== HELP ===
+Take 'im away! We cannnot get caught!
 
 + :( -> END
