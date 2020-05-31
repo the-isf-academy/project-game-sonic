@@ -16,7 +16,6 @@ from quest.contrib.sprite_directionality import DirectionalMixin
 from quest.sprite import QuestSprite
 from puzzle import *
 
-
 class IslandAdventure(InventoryMixin,GrandmasSoupGame):
     """A very simple subclass of :py:class:`QuestGame`.
 
@@ -33,8 +32,8 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
     player_sprite_image_down="island/boy_simple.png"
     player_sprite_image_up="island/boy_copy.png"
     player_scaling=0.7
-    screen_width = 750
-    screen_height = 750
+    screen_width = 500
+    screen_height = 500
     left_viewport_margin = 96
     right_viewport_margin = 96
     bottom_viewport_margin = 96
@@ -55,29 +54,43 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
         self.modal3= DialogueModal(self, self.dialogue3)
         self.InitTalk()
 
+    instruction_shortcut = arcade.key.P
+
+    def on_key_press(self, key, modifier):
+        """Overrides `on_key_press` so that when the instructions shortcut key is
+        pressed, opens the instructions. Otherwise, delegates to the parent
+        `on_key_press` method.
+        """
+        if key == self.instruction_shortcut:
+            self.open_modal(self.modal1)
+        else:
+            super().on_key_press(key, modifier)
 
     def talk_with_pirate(self):
+        """
+        Opens the talk with pirate dialogue(dialogue.ink)
+        """
         self.open_modal(self.modal)
 
     def pirateambush(self):
+        """
+        Opens the pirate ambush dialogue(dialogue2.ink)
+        """
         self.open_modal(self.modal2)
 
-    def Escape(self):
-        self.open_modal(self.modal3)
-
     def setup_npcs(self):
-        """Creates and places Grandma and the vegetables.
+        """Creates and places the keys and artifacts.
         """
         npc_data = [
             [Puzzle, "island/key.png", 1, 9*32, (99-31)*32],
             [Puzzle, "island/key1.png", 1, 34*32, (100-34)*32],
             [Puzzle, "island/key2.png", 1, 12*32, (100-60)*32],
             [Puzzle, "island/key3.png", 1, 35*32, (100-61)*32],
-            [Puzzle2, "island/carrots.png", 1, 65*32, (99-15)*32],
-            [Puzzle2, "island/mushroom.png", 1, 136*32, (100-10)*32],
-            [Puzzle2, "island/potatoes.png", 1, 128*32, (100-72)*32],
-            [Puzzle2, "island/tomatos.png", 1, 45*32, (100-92)*32],
-            [Puzzle2, "island/tomatos.png", 1, 135*32, (100-92)*32],
+            [Puzzle2, "island/amulet.png", 1, 65*32, (99-15)*32],
+            [Puzzle2, "island/godstatue.png", 1, 136*32, (100-10)*32],
+            [Puzzle2, "island/statue.png", 1, 128*32, (100-72)*32],
+            [Puzzle2, "island/cat.png", 0.7, 45*32, (100-92)*32],
+            [Puzzle2, "island/goblet.png", 0.6, 135*32, (100-92)*32],
         ]
         self.npc_list = arcade.SpriteList()
         for sprite_class, image, scale, x, y in npc_data:
@@ -109,6 +122,9 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
         self.add_map(TiledMap("island/combinedmaps.tmx",sprite_classes))
 
     def InitTalk(self):
+        """
+        Starts the instruction dialogue
+        """
         self.open_modal(self.modal1)
 
     def on_draw(self):
@@ -118,8 +134,8 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
 
     def draw_game_over(self):
         """
-        Draw "Game over" across the screen and reports the notification statistics
-        to the player at the end of the game.
+        Draw "The End" across the screen and reports the notification statistics
+        to the player at the end of the game. Also draws "Game by Jared & Maddalena"
 
         Code from Python Arcade library documentation:
         https://arcade.academy/examples/instruction_and_game_over_screens.html
@@ -131,8 +147,6 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
         output = "Game by Jared & Maddalena"
         arcade.draw_text(output, self.view_left + self.screen_width/2, self.view_bottom + self.screen_height/2.5,
             arcade.color.WHITE, 24, align="center", anchor_x="center", anchor_y="center")
-
-
 
 class PlayerDirectional(DirectionalMixin,QuestSprite):
     pass
