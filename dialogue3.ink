@@ -1,4 +1,4 @@
 === START ===
-Try to evade from the pirates. They are trying to steal your treasure chest!
+The treasure has now spawned in the lava lake!
 
 + Ok -> END

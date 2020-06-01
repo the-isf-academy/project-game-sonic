@@ -54,6 +54,8 @@ class Puzzle2(InventoryItemMixin,NPC):
     def __init__(self,gamestate,image,scale):
         self.gamestate=gamestate
         super().__init__(image,scale)
+        self.dialogue3 = Dialogue.from_ink("dialogue3.ink")
+        self.modal3= DialogueModal(self, self.dialogue3)
 
     def check(self,inventory):
         """
@@ -69,6 +71,8 @@ class Puzzle2(InventoryItemMixin,NPC):
                 sprite.center_x = x
                 sprite.center_y = y
                 self.gamestate.npc_list.append(sprite)
+                self.open_modal(self.modal3)
+
 
     def on_collision(self, sprite, game):
         """
