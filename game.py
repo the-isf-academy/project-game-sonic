@@ -48,6 +48,9 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
 
     instruction_shortcut = arcade.key.P
 
+    def treasurespawn(self):
+        self.open_modal(self.modal3)
+
     def on_key_press(self, key, modifier):
         """
         Opens the instructions when you press "P" key
