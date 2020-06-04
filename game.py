@@ -32,7 +32,8 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
     top_viewport_margin = 96
     player_initial_x = 5*32
     player_initial_y = (100-50)*32
-    player_speed = 8
+    player_speed = 7
+    game_over=False
 
     def __init__(self):
         super().__init__()
