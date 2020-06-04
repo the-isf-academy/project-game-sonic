@@ -58,7 +58,6 @@ we would then need to change where it calls the setup_npcs function to our new
 function, which would waste a lot of time for something that is unnecassary.*
 
 
-*(Copy and paste lines above if you have more pieces of evidence to provide).*
 
 #### Grade
 We think that we should get a 7 on this strand, as we have provided multiple pieces of evidence which
@@ -109,8 +108,18 @@ any issues or misunderstandings we have with the game code. Discord is very usef
 and works similarly to google meets. We have used this platform many times and it
 has became an app that we use regularly to communicate with each other at home.*
 
+#### Piece of evidence
+*(Feature Lab Feature Proposal | Team Sonic) planning documentation*
 
+Justification of engagement:
+*This document shows strong evidence of our planning for the game codes. We worked
+evenly on this document and have detailed descriptions of what we have planned
+to code for the game. This includes each individual classes and functions that we
+planned to write.*
 
+#### Grade
+We think that we should get a 7 on this strand, as we have provided multiple pieces of evidence which
+showed us fulfilling this criteria.
 --------------------------------------------------------------------
 
 
@@ -152,7 +161,6 @@ asked teachers and our family to try play our game to give us some feedback. Thi
 was useful as we were able to develop our game further with their constructive feedback*
 
 
-*(Copy and paste lines above if you have more piecces of evidence to provide).*
 ### Grade
 We think that we should get a 7 on this strand, as we have provided multiple pieces of evidence which
 showed us fulfilling this criteria.
@@ -169,24 +177,45 @@ and create a context to **experience emotions**.*
 ### Evidence of engagement
 
 #### Piece of evidence
-*Describe a piece of evidence here...*
+*We made our own map for the game (located in island file named combinedmaps.tmx)*
 
 Justification of engagement:
-*Write justification here...*
+*We developed our own map to show our idea more clearly. Though we have used
+the given map as a base for our first location, the two other locations are designed
+from us. It was needed to develop our own maps because to give the game a more
+treasure map feel, we had to make the map larger to make the finding part more
+enjoyable and longer for the player. We also had to create a boat map. This map
+is used at the end for the game over screen. It was there to represent when the
+player/sprite got kidnapped by the pirates.*
 
 
 #### Piece of evidence
-*Describe a piece of evidence here...*
+*(Feature Lab Feature Proposal | Team Sonic) planning documentation that shows
+our planned story line for our story*
 
 Justification of engagement:
-*Write justification here...*
+*This section in the planning document shows our story that we have originally  
+planned for the game. But because we have encounters countless bugs and challenges
+we had to change our story (we shortened the story line and made it more simple)
+From reading our plot line in the planning document, it is still obvious the main
+idea in our game. It is also obvious of our plot and idea development in our game.*
 
 
 #### Piece of evidence
-*Describe a piece of evidence here...*
+*An idea that our game follows. The idea: The player is finding a treasure but
+once the player finds the treasure, pirates would kidnap him/her. The aim of the
+game is to escape with the treasure and without getting killed by the pirates.*
 
 Justification of engagement:
-*Write justification here...*
+*We followed this idea because we wanted the player to feel excited and nervous
+throughout the different stages of the game. In the beginning we build a trust
+with the player, making it a bit easy to find the treasure. Then with a set
+of simple rules they gradually make it closer to the treasure and eventually they
+find the treasure. Then we bring the unexpected into the game... The player is
+surprised by many pirates. This part the player should feel excited for the next
+part because they were not expected to be kidnapped by pirates. We use the plot
+line to keep the player engaged and motivated to play the game.*
 
-
-*(Copy and paste lines above if you have more pieces of evidence to provide).*
+### Grade
+We think that we should get a 7 on this strand, as we have provided multiple pieces of evidence which
+showed us fulfilling this criteria.
