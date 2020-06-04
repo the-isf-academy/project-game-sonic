@@ -60,7 +60,7 @@ class Puzzle2(InventoryItemMixin,NPC):
         Defines the function which checks if inventory has all the artifacts,
         and if you do, summons the treasure chest.
         """
-        if len(inventory) == 5:
+        if len(inventory) == 9:
             npc_data = [
                 [Treasure, "island/loot.png", 0.6, 91.5*32, (100-96.5)*32]
             ]

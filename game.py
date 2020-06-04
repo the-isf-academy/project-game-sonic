@@ -24,15 +24,15 @@ class IslandAdventure(InventoryMixin,GrandmasSoupGame):
     player_sprite_image_down="island/boy_simple.png"
     player_sprite_image_up="island/boy_copy.png"
     player_scaling=0.7
-    screen_width = 500
-    screen_height = 500
+    screen_width = 750
+    screen_height = 750
     left_viewport_margin = 96
     right_viewport_margin = 96
     bottom_viewport_margin = 96
     top_viewport_margin = 96
     player_initial_x = 5*32
     player_initial_y = (100-50)*32
-    player_speed = 6
+    player_speed = 8
 
     def __init__(self):
         super().__init__()
