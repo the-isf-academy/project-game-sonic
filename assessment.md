@@ -30,29 +30,39 @@ to allow for extended functionality.*
 ### Evidence of engagement
 
 #### Piece of evidence
-*Describe a piece of evidence here...*
+*game.py Line 19 "Game Class"*
+
+*Justification of engagement:
+So here, we decided to extend a class instead of writing a new class. This was
+because our game was quite similar to that of the parent class, and we would
+also use code from the parent class, so we decided to extend the class so it
+would make it simpler and easier to debug.*
+
+#### Piece of evidence
+*puzzle.py Line 182 "portal class"*
 
 Justification of engagement:
-*Write justification here...*
+*So here, I added a new class. I did this instead of extending another class was
+because I would have many different functions for the different sprites, such as
+a pickup function for the item sprites, a teleport function for the portal sprite,
+a pirate dialogue function for the piratelord sprite etc.*
 
 
 #### Piece of evidence
-*Describe a piece of evidence here...*
+*game.py Line 76 "setup_npcs"*
 
 Justification of engagement:
-*Write justification here...*
+*Here, we decided to override the parent setup_npcs function because we needed
+to input the sprites into the game. we could have just made a new function, but
+we would then need to change where it calls the setup_npcs function to our new
+function, which would waste a lot of time for something that is unnecassary.*
 
 
-#### Piece of evidence
-*Describe a piece of evidence here...*
+*(Copy and paste lines above if you have more pieces of evidence to provide).*
 
-Justification of engagement:
-*Write justification here...*
-
-
-*(Copy and paste lines above if you have more piecces of evidence to provide).*
-
-
+#### Grade
+We think that we should get a 7 on this strand, as we have provided multiple pieces of evidence which
+showed us fulfilling this criteria.
 --------------------------------------------------------------------
 
 
@@ -65,27 +75,40 @@ experienced the importance of the **documentation of a project** to those trying
 ### Evidence of engagement
 
 #### Piece of evidence
-*Describe a piece of evidence here...*
+There are many examples of us writing a description throughout our code but here is a few:
+line 19, 28-29,43 of puzzle.py
 
 Justification of engagement:
-*Write justification here...*
+*Below each function or class that we have written there will be a short sentence
+to summarise what the function/code written below. This is to ensure that our
+teammates understand and is able to use the code/function with out any large
+misunderstandings. Describing our code is very important because if another teammate
+reads a new code that has been written, they would have to read the whole entire
+code to understand it's functions. If the teammate/author of the code wrote a
+small summary of the code that they have wrote, it would save time and make it easier
+for others to use and understand the code.*
 
 
 #### Piece of evidence
-*Describe a piece of evidence here...*
+*Google meet. A platform where you can meet with other through devices. During our
+class times, we use this platform to discuss and work on the code as a team.*
 
 Justification of engagement:
-*Write justification here...*
+*During our class times we attend a google meet to discuss and help each other
+with the code for the game. This platform allows us to talk to each other and
+share our screens, these functions allow us to understand how to overcome a
+specific bug.*
 
 
 #### Piece of evidence
-*Describe a piece of evidence here...*
+*Discord. A platform that allows people to text and voice call.*
 
 Justification of engagement:
-*Write justification here...*
+*When we do not have any classes, we use Discord to call and further discuss
+any issues or misunderstandings we have with the game code. Discord is very useful
+and works similarly to google meets. We have used this platform many times and it
+has became an app that we use regularly to communicate with each other at home.*
 
-
-*(Copy and paste lines above if you have more piecces of evidence to provide).*
 
 
 --------------------------------------------------------------------
@@ -100,28 +123,39 @@ on specific elements of your game’s functionality or playability.*
 ### Evidence of engagement
 
 #### Piece of evidence
-*Describe a piece of evidence here...*
+*Fixing game.py commit*
 
 Justification of engagement:
-*Write justification here...*
+*In line 62 of puzzle.py in this commit, we added a function which whenever we ran
+into a sprite would print the number of sprites in the game. We did this so we would
+know how many sprites currently existed, as we needed to know how many sprites existed
+for our functions.*
 
 
 #### Piece of evidence
-*Describe a piece of evidence here...*
+*Changing the game after we run it*
 
 Justification of engagement:
-*Write justification here...*
+*To make my game work, we had to run the game and see if there were any errors while
+we were playing the game. We did this to make sure my game was working, so we had a product,
+but we also did this to see what we could change about the game. For example, some of
+the sprites were too big, so when we noticed that, we changed the sprite scaling.
+Through this process, we were able to create a game.*
 
 
 #### Piece of evidence
-*Describe a piece of evidence here...*
+*Playtesting*
 
 Justification of engagement:
-*Write justification here...*
+*Even though we were not able to see each other when we were making the game, we
+asked teachers and our family to try play our game to give us some feedback. This
+was useful as we were able to develop our game further with their constructive feedback*
 
 
 *(Copy and paste lines above if you have more piecces of evidence to provide).*
-
+### Grade
+We think that we should get a 7 on this strand, as we have provided multiple pieces of evidence which
+showed us fulfilling this criteria.
 
 --------------------------------------------------------------------
 
